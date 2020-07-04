@@ -1,0 +1,25 @@
+.modebar-container, .dash-debug-menu {
+  visibility: hidden;
+}
+
+.dash-graph {
+  margin-top: -60px;
+  margin-bottom: -25px;
+}
+
+.main-svg {
+  background: none!Important;
+}
+
+.svg-container {
+  font-family: 'Ruda', sans-serif;
+}
+
+.draglayer {
+  margin-right: -30px;
+}
+
+.texto {
+  text-align: justify;
+}
+

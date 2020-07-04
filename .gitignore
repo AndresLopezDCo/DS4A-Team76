@@ -1,0 +1,6 @@
+App/lib/conexion.py
+*.pyc 
+find . -name "*.pyc" -exec git rm -f "{}" \;
+.DS_Store
+.DS_Store
+.DS_Store

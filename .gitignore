@@ -4,6 +4,7 @@ App/lib/conexion.py
 
 __pycache__/
 *.py[cod]
+*.ipynb_checkpoints/
 
 # C extensions
 *.so

@@ -2,7 +2,8 @@ App/lib/conexion.py
 *.pyc 
 .DS_Store
 data_etls
-
+Mintic - ECAR
+plots
 
 __pycache__/
 *.py[cod]

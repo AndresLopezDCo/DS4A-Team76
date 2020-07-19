@@ -19,6 +19,9 @@ import numpy as np
 import datetime as dt
 import pandas as pd
 import json
+import certifi
+import ssl
+import requests
 import plotly.graph_objects as go 
 import plotly.express as px
 import warnings
@@ -30,7 +33,7 @@ from sqlalchemy import create_engine, text
 ###########################################################################
 
 from app import app
-from lib import filtros, textos, graficas
+from lib import filtros, textos, graficas, mapas
 
 
 ###########################################################################
@@ -49,7 +52,7 @@ app.layout = html.Section([
                 'CNC'
                 ,html.Span (' ECAR')
             ])
-        ],href='index.py',className='logo')
+        ],href='',className='logo')
     ],className='header black-bg')
     #######################################################################
     # sidebar
@@ -60,7 +63,7 @@ app.layout = html.Section([
                 html.P ([
                     html.Img(src='assets/usuario.jpg', className='img-circle logo')
                 ],className='centered')
-                ,html.H5('CAMILO AMEZQUITA', className='centered')
+                ,html.H5('TEAM76', className='centered')
                 ,html.Li([
                     html.A ([
                         html.I(className='fa fa-bar-chart-o')
@@ -83,6 +86,18 @@ app.layout = html.Section([
             html.Div ([
                 html.Div ([
                     html.Div ([
+                        html.H3('DISTRIBUCIÓN EJEMPLO')
+                    ],className='border-head')
+                    #######################################################
+                    # grafica 4 y texto 4
+                    #######################################################
+                    ,mapas.mapa_01
+                    ,textos.texto_04
+                ],className='col-md-12 main-chart')
+            ],className='row')
+            ,html.Div ([
+                html.Div ([
+                    html.Div ([
                         html.H3('DISTRIBUCIÓN POR RANGO DE EDAD')
                     ],className='border-head')
                     #######################################################
@@ -90,18 +105,6 @@ app.layout = html.Section([
                     #######################################################
                     ,graficas.grafica_01
                     ,textos.texto_01
-                ],className='col-md-12 main-chart')
-            ],className='row')
-            ,html.Div ([
-                html.Div ([
-                    html.Div ([
-                        html.H3('DISTRIBUCIÓN EJEMPLO')
-                    ],className='border-head')
-                    #######################################################
-                    # grafica 4 y texto 4
-                    #######################################################
-                    ,graficas.grafica_04
-                    ,textos.texto_04
                 ],className='col-md-12 main-chart')
             ],className='row')
             ,html.Div ([

@@ -1,6 +1,8 @@
 App/lib/conexion.py
 *.pyc 
 .DS_Store
+data_etls
+
 
 __pycache__/
 *.py[cod]

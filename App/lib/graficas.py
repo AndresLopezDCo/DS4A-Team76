@@ -36,9 +36,9 @@ from lib import consultas, filtros
 # creamos variables por graficas
 ###########################################################################
 
-fig_ejemplo1 = px.scatter(consultas.df_ejemplo, x='edad', y='cantidad', height=400)
-fig_ejemplo2 = px.line(consultas.df_ejemplo, x='edad', y='cantidad', height=400)
-fig_ejemplo3 = px.scatter(consultas.df_ejemplo, x='edad', y='cantidad', height=400)
+fig_ejemplo1 = px.scatter(consultas.df_ejemplo, x='edad', y='codenc', height=400)
+fig_ejemplo2 = px.line(consultas.df_ejemplo, x='edad', y='codenc', height=400)
+fig_ejemplo3 = px.scatter(consultas.df_ejemplo, x='edad', y='codenc', height=400)
 fig_ejemplo4 = px.box(consultas.df_ejemplo, y="edad")
 
 ###########################################################################

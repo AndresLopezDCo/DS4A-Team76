@@ -22,5 +22,5 @@ from lib import conexion
 # realizar query de consultas
 ###########################################################################
 
-query = """SELECT * FROM ecar_dm.ejemplo;"""
+query = """select * from ecar_dwh.ecar_dwh_base_encuestas_efectivas;"""
 df_ejemplo = conexion.runQuery(query)

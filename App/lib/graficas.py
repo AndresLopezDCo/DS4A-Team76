@@ -36,13 +36,26 @@ from lib import consultas, filtros
 # creamos variables por graficas
 ###########################################################################
 
-fig_ejemplo1 = px.scatter(consultas.df_ejemplo, x='edad', y='codenc', height=400)
-fig_ejemplo2 = px.line(consultas.df_ejemplo, x='edad', y='codenc', height=400)
-fig_ejemplo3 = px.scatter(consultas.df_ejemplo, x='edad', y='codenc', height=400)
-fig_ejemplo4 = px.box(consultas.df_ejemplo, y="edad")
+
+df1 = consultas.df_ejemplo_01
+ejex1 = 'edad'
+ejey1 = 'codenc'
+
+df2 = consultas.df_ejemplo_02
+ejex2 = 'estrato'
+ejey2 = 'codenc'
+
+
+fig_ejemplo1 = px.bar(df1, x=ejex1, y=ejey1, height=400)
+fig_ejemplo2 = px.line(df1, x=ejex1, y=ejey1, height=400)
+fig_ejemplo3 = px.scatter(df1, x=ejex1, y=ejey1, height=400)
+fig_ejemplo4 = px.box(df1, x=ejex1, y=ejey1)
+
+fig_ejemplo5 = px.bar(df2, x=ejex2, y=ejey2, height=400)
+fig_ejemplo6 = px.scatter(df2, x=ejex2, y=ejey2, height=400)
 
 ###########################################################################
-# grafica distribucion por rango de edad barras
+# grafica distribucion por rango de edad
 ###########################################################################
 
 grafica_01 = html.Div ([
@@ -50,25 +63,17 @@ grafica_01 = html.Div ([
                 ],id='id_grafica_01')
 
 ###########################################################################
-# grafica distribucion por rango de edad lineas
+# grafica distribucion por estrato barras
 ###########################################################################
 
 grafica_02 = html.Div ([
-                    dcc.Graph(figure=fig_ejemplo2,id='id_figure_02')
+                    dcc.Graph(figure=fig_ejemplo5,id='id_figure_02')
                 ],id='id_grafica_02')
 
 ###########################################################################
-# grafica distribucion por rango de edad plots
+# grafica distribucion por estrato scatter
 ###########################################################################
 
 grafica_03 = html.Div ([
-                    dcc.Graph(figure=fig_ejemplo3,id='id_figure_03')
+                    dcc.Graph(figure=fig_ejemplo6,id='id_figure_03')
                 ],id='id_grafica_03')
-
-###########################################################################
-# grafica distribucion por rango de edad boxplot
-###########################################################################
-
-grafica_04 = html.Div ([
-                    dcc.Graph(figure=fig_ejemplo4,id='id_figure_04')
-                ],id='id_grafica_04')

@@ -23,3 +23,50 @@
   text-align: justify;
 }
 
+.icono {
+  height: 90px;
+  float: left;
+}
+
+.tarjetas {
+  height: 120px;
+  padding: 10px;
+  border: 5px solid #fff;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.etiqueta {
+  font-family: 'Ruda', sans-serif;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: -15px;
+  float: left;
+  margin-left: 45px;
+}
+
+.descripcion {
+  font-family: 'Ruda', sans-serif;
+  text-align: center;
+  font-size: 15px;
+}
+
+.blue {
+  color:#fff;
+  background-color: #18418c;
+}
+
+.green {
+  color:#fff;
+  background-color: #0e6d51;
+}
+
+.red {
+  color:#fff;
+  background-color: #d43710;
+}
+
+.grey {
+  color:#fff;
+  background-color: #31383d;
+}

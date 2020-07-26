@@ -25,21 +25,38 @@ from app import app
 from lib import consultas
 
 ###########################################################################
-# creamos filtros
+# creamos filtro de mapa
 ###########################################################################
 
 filtro_01 = html.Div (children=[
-                    html.Label('ESTRATO', className='filtros-label')
+                    html.Label('FILTRO MAPA', className='filtros-label')
                     ,dcc.Dropdown(
                         options=[
-                            {'label': 'Estrato 1', 'value': '1'}
-                            ,{'label': 'Estrato 2', 'value': '2'}
-                            ,{'label': 'Estrato 3', 'value': '3'}
-                            ,{'label': 'Estrato 4', 'value': '4'}
-                            ,{'label': 'Estrato 5', 'value': '5'}
-                            ,{'label': 'Estrato 6', 'value': '6'}
-                        ],id='id_filtro_01',value=['1'] ,multi=True)
-                ],id='filtro_01',className='filtros')
+                            {'label': 'LLAMADAS EFECTIVAS', 'value': '1'}
+                            ,{'label': 'DURACION LLAMADAS', 'value': '2'}
+                            ,{'label': 'NUMERO DE CUOTAS', 'value': '3'}
+                            ,{'label': 'PORC LLAMADAS EFECTIVAS', 'value': '4'}
+                        ],id='id_flt_mapa_01',value='1')
+                ],id='id_filtro_01',className='filtros')
+
+###########################################################################
+# creamos filtro de grafica
+###########################################################################
+
+filtro_1001 = html.Div (children=[
+                    html.Label('TIPO_GRAFICO', className='filtros-label')
+                    ,dcc.Dropdown(
+                        options=[
+                            {'label': 'BARRAS', 'value': '1'}
+                            ,{'label': 'LINEAS', 'value': '2'}
+                            ,{'label': 'SCATERPLOT', 'value': '3'}
+                            ,{'label': 'BOXPLOT', 'value': '4'}
+                        ],id='tipo_grafico_01',value='1')
+                ],id='filtro_1001',className='filtros')
+
+###########################################################################
+# creamos filtro de slider de prueba por estrato
+###########################################################################
 
 filtro_02 = html.Div (children=[
                     html.Label('ESTRATO VRS 2', className='filtros-label')
@@ -49,5 +66,7 @@ filtro_02 = html.Div (children=[
                         max=6,
                         step=1,
                         value=3,
+                        #mark={1:'1', 2:'2', 3:'3', 4:'4', 5:'5',6:'6'},
                     ), html.Div(id='id_filtro_02')
                 ],id='filtro_02',className='filtros')
+

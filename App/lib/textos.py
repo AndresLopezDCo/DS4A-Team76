@@ -33,23 +33,36 @@ from app import app
 ###########################################################################
 
 texto_01 = dcc.Markdown ('''
-                            Esto es un ejemplo del texto 1 y viene la descripcion de la regresión lineal
-                        ''',id='texto_01',className='texto')
+                            1000
+                        ''',id='id_texto_01',className='etiqueta')
+descripcion_01 = dcc.Markdown ('''
+                            DESCRIPCION 1
+                        ''',id='id_descripcion_01',className='descripcion')
 texto_02 = dcc.Markdown ('''
-                            Grafica 02 Este es un ejemplo acerca del detalle de las graficas
-                            Grafica 02 Este es un ejemplo acerca del detalle de las graficas
-                            Grafica 02 Este es un ejemplo acerca del detalle de las graficas
-                            Grafica 02 Este es un ejemplo acerca del detalle de las graficas
-                            Grafica 02 Este es un ejemplo acerca del detalle de las graficas
-                        ''',id='texto_02',className='texto')
+                            500
+                        ''',id='id_texto_02',className='etiqueta')
+descripcion_02 = dcc.Markdown ('''
+                            DESCRIPCION 2
+                        ''',id='id_descripcion_02',className='descripcion')
 texto_03 = dcc.Markdown ('''
-                            Grafica 03 Este es un ejemplo acerca del detalle de las graficas
-                            Grafica 03 Este es un ejemplo acerca del detalle de las graficas
-                            Grafica 03 Este es un ejemplo acerca del detalle de las graficas
-                            Grafica 03 Este es un ejemplo acerca del detalle de las graficas
-                            Grafica 03 Este es un ejemplo acerca del detalle de las graficas
-                        ''',id='texto_03',className='texto')
-
+                            700
+                        ''',id='id_texto_03',className='etiqueta')
+descripcion_03 = dcc.Markdown ('''
+                            DESCRIPCION 3
+                        ''',id='id_descripcion_03',className='descripcion')
 texto_04 = dcc.Markdown ('''
-                            Esto es un ejemplo del texto 4 y viene la descripcion de la regresión lineal en box plot
-                        ''',id='texto_04',className='texto')
+                            1200
+                        ''',id='id_texto_04',className='etiqueta')
+descripcion_04 = dcc.Markdown ('''
+                            DESCRIPCION 4
+                        ''',id='id_descripcion_04',className='descripcion')
+texto_05 = dcc.Markdown ('''
+                            Esta es la descripción del mapa
+                        ''',id='id_texto_05',className='texto')
+texto_06 = dcc.Markdown ('''
+                            Esta es la descripción del numero de llamadas efectivas
+                        ''',id='id_texto_06',className='texto')
+
+texto_07 = dcc.Markdown ('''
+                            Esta es la descripción de efectividad ajustada
+                        ''',id='id_texto_07',className='texto')

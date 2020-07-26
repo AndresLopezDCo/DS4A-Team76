@@ -19,8 +19,6 @@ import numpy as np
 import datetime as dt
 import pandas as pd
 import json
-import certifi
-import ssl
 import requests
 import plotly.graph_objects as go 
 import plotly.express as px
@@ -33,7 +31,7 @@ from sqlalchemy import create_engine, text
 ###########################################################################
 
 from app import app
-from lib import filtros, textos, graficas, mapas
+from lib import filtros, textos, graficas, interacciones #, mapas
 
 
 ###########################################################################
@@ -68,13 +66,14 @@ app.layout = html.Section([
                     html.A ([
                         html.I(className='fa fa-bar-chart-o')
                         ,html.Span('DASHBOARD')
-                    ], href='index.py', className='active')
+                    ], href='', className='active')
                 ], className='mt')
                 ###########################################################
                 # filtros
                 ###########################################################
                 ,filtros.filtro_01
                 ,filtros.filtro_02
+                ,filtros.filtro_1001
             ],id='nav-accordion', className='sidebar-menu')
         ],id='sidebar', className='nav-collapse ')
     ])
@@ -84,49 +83,95 @@ app.layout = html.Section([
             # contenido
             ###############################################################
             html.Div ([
+                ###########################################################
+                    # tarjeta 1
+                ###########################################################
                 html.Div ([
-                    html.Div ([
-                        html.H3('DISTRIBUCIÓN EJEMPLO')
-                    ],className='border-head')
-                    #######################################################
-                    # grafica 4 y texto 4
-                    #######################################################
-                    ,mapas.mapa_01
-                    ,textos.texto_04
-                ],className='col-md-12 main-chart')
-            ],className='row')
-            ,html.Div ([
-                html.Div ([
-                    html.Div ([
-                        html.H3('DISTRIBUCIÓN POR RANGO DE EDAD')
-                    ],className='border-head')
-                    #######################################################
-                    # grafica 1 y texto 1
-                    #######################################################
-                    ,graficas.grafica_01
+                    html.Img(src='assets/logo_01.png', className='icono')
                     ,textos.texto_01
-                ],className='col-md-12 main-chart')
+                    ,textos.descripcion_01
+                ],className='col-md-3 tarjetas blue')
+                ###########################################################
+                    # tarjeta 2
+                ###########################################################
+                ,html.Div ([
+                    html.Img(src='assets/logo_01.png', className='icono')
+                    ,textos.texto_02
+                    ,textos.descripcion_02
+                ],className='col-md-3 tarjetas grey')
+                ###########################################################
+                    # tarjeta 3
+                ###########################################################
+                ,html.Div ([
+                    html.Img(src='assets/logo_01.png', className='icono')
+                    ,textos.texto_03
+                    ,textos.descripcion_03
+                ],className='col-md-3 tarjetas red')
+                ###########################################################
+                    # tarjeta 4
+                ###########################################################
+                ,html.Div ([
+                    html.Img(src='assets/logo_01.png', className='icono')
+                    ,textos.texto_04
+                    ,textos.descripcion_04
+                ],className='col-md-3 tarjetas green')
             ],className='row')
             ,html.Div ([
                 html.Div ([
                     html.Div ([
-                        html.H3('DISTRIBUCIÓN POR RANGO DE EDAD')
+                        html.H3('ESTADISTICAS POR DEPARTAMENTO')
+                    ],className='border-head')
+                    #######################################################
+                    # mapa de colombia "mapa 1", descripción "texto 5"
+                    #######################################################
+                    #,mapas.mapa_01
+                    ,textos.texto_05
+                ],className='col-md-6 main-chart')
+                ,html.Div ([
+                    html.Div ([
+                        html.Div ([
+                            html.Div ([
+                                html.H3('LLAMADAS EFECTIVAS')
+                            ],className='border-head')
+                            #######################################################
+                            # grafica 1 y texto 6
+                            #######################################################
+                            ,graficas.grafica_01
+                            ,textos.texto_06
+                        ],className='col-md-12 main-chart')
+                        ,html.Div ([
+                            html.Div ([
+                                html.H3('DISTRIBUCIÓN POR RANGO DE EDAD')
+                            ],className='border-head')
+                            #######################################################
+                            # grafica 2 y texto 7
+                            #######################################################
+                            ,graficas.grafica_02
+                            ,textos.texto_07
+                        ],className='col-md-12 main-chart')
+                    ],className='row')
+                ],className='col-md-6 main-chart')
+            ],className='row')
+            ,html.Div ([
+                html.Div ([
+                    html.Div ([
+                        html.H3('DISTRIBUCIÓN POR ESTRATO')
                     ],className='border-head')
                     #######################################################
                     # grafica 2 y texto 2
                     #######################################################
-                    ,graficas.grafica_02
-                    ,textos.texto_02
+                    #,graficas.grafica_02
+                    #,textos.texto_02
                 ],className='col-md-6 main-chart')
                 ,html.Div ([
                     html.Div ([
-                        html.H3('DISTRIBUCIÓN POR RANGO DE EDAD')
+                        html.H3('DISTRIBUCIÓN POR ESTRATO')
                     ],className='border-head')
                     #######################################################
                     # grafica 3 y texto 3
                     #######################################################
-                    ,graficas.grafica_03
-                    ,textos.texto_03
+                    #,graficas.grafica_03
+                    #,textos.texto_03
                 ],className='col-md-6 main-chart')
             ],className='row')
         ],className='wrapper')

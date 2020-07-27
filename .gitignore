@@ -5,21 +5,18 @@ data_etls
 Mintic - ECAR
 plots
 
-__pycache__/
-*.py[cod]
+
+
 *.ipynb_checkpoints/
 
 # C extensions
 *.so
 
 # Distribution / packaging
-bin/
 build/
 develop-eggs/
 dist/
 eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/

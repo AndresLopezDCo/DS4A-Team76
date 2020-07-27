@@ -56,13 +56,4 @@ texto_04 = dcc.Markdown ('''
 descripcion_04 = dcc.Markdown ('''
                             DESCRIPCION 4
                         ''',id='id_descripcion_04',className='descripcion')
-texto_05 = dcc.Markdown ('''
-                            Esta es la descripción del mapa
-                        ''',id='id_texto_05',className='texto')
-texto_06 = dcc.Markdown ('''
-                            Esta es la descripción del numero de llamadas efectivas
-                        ''',id='id_texto_06',className='texto')
 
-texto_07 = dcc.Markdown ('''
-                            Esta es la descripción de efectividad ajustada
-                        ''',id='id_texto_07',className='texto')

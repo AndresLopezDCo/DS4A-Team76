@@ -46,10 +46,15 @@
 }
 
 .descripcion {
-  font-family: 'Ruda', sans-serif;
   text-align: center;
   font-size: 15px;
 }
+
+.cell-table {
+  margin-top: 40px;
+  margin-left: 15px;
+}
+
 
 .blue {
   color:#fff;
@@ -69,4 +74,10 @@
 .grey {
   color:#fff;
   background-color: #31383d;
+}
+
+.tablas {
+  font-family: 'Ruda', sans-serif!Important;
+  text-align: center;
+  font-size: 15px;
 }

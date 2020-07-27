@@ -37,37 +37,40 @@ from lib import consultas, filtros
 ###########################################################################
 
 
-df1 = consultas.df_ejemplo_01
-ejex1 = 'edad'
-ejey1 = 'codenc'
+df1 = consultas.df_efectivas_cuotas
+ejex1 = df1.index
+ejey1 = 'count'
 
-df2 = consultas.df_ejemplo_02
-ejex2 = 'estrato'
-ejey2 = 'codenc'
+df2 = consultas.df_tiempos
+ejex2 = 'calls'
+ejey2 = 'efectividad_ajustada'
 
+#Graficas por defecto 
+fig_efectivas_cuotas= px.bar(df1, x=ejex1, y=ejey1, height=400)
+fig_marcador = px.scatter(df2, x=ejex2, y=ejey2, height=400)
 
-fig_ejemplo1 = px.bar(df1, x=ejex1, y=ejey1, height=400)
-fig_ejemplo2 = px.line(df1, x=ejex1, y=ejey1, height=400)
 fig_ejemplo3 = px.scatter(df1, x=ejex1, y=ejey1, height=400)
 fig_ejemplo4 = px.box(df1, x=ejex1, y=ejey1)
-
 fig_ejemplo5 = px.bar(df2, x=ejex2, y=ejey2, height=400)
 fig_ejemplo6 = px.scatter(df2, x=ejex2, y=ejey2, height=400)
 
 ###########################################################################
-# grafica distribucion por rango de edad
+# grafica efectividad - cuotas por genero, genero, edad
 ###########################################################################
 
+
 grafica_01 = html.Div ([
-                    dcc.Graph(figure=fig_ejemplo1,id='id_figure_01')
+                    dcc.Graph(figure=fig_efectivas_cuotas,id='id_figure_01')
                 ],id='id_grafica_01')
+
+#id contenedor html 'id_grafica_01 y 'id_figura_01 es el id de la grafica
 
 ###########################################################################
 # grafica distribucion por estrato barras
 ###########################################################################
 
 grafica_02 = html.Div ([
-                    dcc.Graph(figure=fig_ejemplo5,id='id_figure_02')
+                    dcc.Graph(figure=fig_marcador,id='id_figure_02')
                 ],id='id_grafica_02')
 
 ###########################################################################
@@ -77,3 +80,4 @@ grafica_02 = html.Div ([
 grafica_03 = html.Div ([
                     dcc.Graph(figure=fig_ejemplo6,id='id_figure_03')
                 ],id='id_grafica_03')
+

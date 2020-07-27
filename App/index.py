@@ -6,6 +6,7 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 #import dash_bootstrap_components as dbc
+import dash_table as dte
 from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
 
@@ -31,7 +32,7 @@ from sqlalchemy import create_engine, text
 ###########################################################################
 
 from app import app
-from lib import filtros, textos, graficas, interacciones #, mapas
+from lib import filtros, textos, graficas, interacciones , mapas , tablas
 
 
 ###########################################################################
@@ -71,9 +72,10 @@ app.layout = html.Section([
                 ###########################################################
                 # filtros
                 ###########################################################
-                ,filtros.filtro_01
-                ,filtros.filtro_02
-                ,filtros.filtro_1001
+                ,filtros.filtro_01   #mapa
+                ,filtros.filtro_02   #efectividad - cuotas
+                ,filtros.filtro_03   #Tiempos - Marcador 
+#                 ,filtros.filtro_1001 # prueba caalbacks
             ],id='nav-accordion', className='sidebar-menu')
         ],id='sidebar', className='nav-collapse ')
     ])
@@ -124,8 +126,8 @@ app.layout = html.Section([
                     #######################################################
                     # mapa de colombia "mapa 1", descripción "texto 5"
                     #######################################################
-                    #,mapas.mapa_01
-                    ,textos.texto_05
+                    ,mapas.mapa_01
+#                     ,textos.texto_05
                 ],className='col-md-6 main-chart')
                 ,html.Div ([
                     html.Div ([
@@ -137,17 +139,17 @@ app.layout = html.Section([
                             # grafica 1 y texto 6
                             #######################################################
                             ,graficas.grafica_01
-                            ,textos.texto_06
+#                             ,textos.texto_06
                         ],className='col-md-12 main-chart')
                         ,html.Div ([
                             html.Div ([
-                                html.H3('DISTRIBUCIÓN POR RANGO DE EDAD')
+                                html.H3('EFECTIVIDAD vs. TIEMPOS')
                             ],className='border-head')
                             #######################################################
                             # grafica 2 y texto 7
                             #######################################################
                             ,graficas.grafica_02
-                            ,textos.texto_07
+#                             ,textos.texto_07
                         ],className='col-md-12 main-chart')
                     ],className='row')
                 ],className='col-md-6 main-chart')
@@ -155,23 +157,22 @@ app.layout = html.Section([
             ,html.Div ([
                 html.Div ([
                     html.Div ([
-                        html.H3('DISTRIBUCIÓN POR ESTRATO')
+                        html.H3('TOP 10 ENCUESTADORES')
                     ],className='border-head')
                     #######################################################
-                    # grafica 2 y texto 2
+                    # grafica 3 y texto 8
                     #######################################################
-                    #,graficas.grafica_02
-                    #,textos.texto_02
+#                     ,graficas.grafica_03
+#                     ,textos.texto_08
                 ],className='col-md-6 main-chart')
                 ,html.Div ([
                     html.Div ([
-                        html.H3('DISTRIBUCIÓN POR ESTRATO')
+                        html.H3('DETALLE DE ENCUESTADORES')
                     ],className='border-head')
                     #######################################################
                     # grafica 3 y texto 3
                     #######################################################
-                    #,graficas.grafica_03
-                    #,textos.texto_03
+                    ,tablas.tabla_01
                 ],className='col-md-6 main-chart')
             ],className='row')
         ],className='wrapper')

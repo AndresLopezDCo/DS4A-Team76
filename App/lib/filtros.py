@@ -59,14 +59,32 @@ filtro_1001 = html.Div (children=[
 ###########################################################################
 
 filtro_02 = html.Div (children=[
-                    html.Label('ESTRATO VRS 2', className='filtros-label')
-                    ,dcc.Slider(
-                        id='my-slider',
-                        min=1,
-                        max=6,
-                        step=1,
-                        value=3,
-                        #mark={1:'1', 2:'2', 3:'3', 4:'4', 5:'5',6:'6'},
-                    ), html.Div(id='id_filtro_02')
+                    html.Label('VARIABLE', className='filtros-label')
+                    ,dcc.Dropdown(
+                        options=[
+                            {'label': 'Estrato', 'value': 'estrato'}
+                            ,{'label': 'Genero', 'value': 'genero'}
+#                             ,{'label': 'Edad', 'value': 'rango_edad'}
+                        ],id='id_efectivas_cuotas',value='estrato')
                 ],id='filtro_02',className='filtros')
+
+###########################################################################
+# creamos filtro de slider de prueba por estrato
+###########################################################################
+
+filtro_03 = html.Div (children=[
+                    html.Label('TIEMPOS MARCADOR', className='filtros-label')
+                    ,dcc.Dropdown(
+                        options=[
+                            {'label': 'Llamadas', 'value':'calls'},
+                            {'label': 'Duración total', 'value': 'total'},
+                            {'label': 'Duración espera', 'value': 'espera'},
+                            {'label': 'Duración hablado', 'value': 'hablado'},
+                            {'label': 'Duración disponible', 'value': 'disponible'},
+                            {'label': 'Duración pausas', 'value': 'pausas'},
+                            {'label': 'Duración muerto', 'value': 'muerto'},
+                            {'label': 'Duración efectivas', 'value': 'duracion_efectivas'}
+                        ],id='id_marcador',value='calls')
+                ],id='filtro_03',className='filtros')
+
 

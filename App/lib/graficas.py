@@ -46,7 +46,9 @@ ejex2 = 'calls'
 ejey2 = 'efectividad_ajustada'
 
 #Graficas por defecto 
-fig_efectivas_cuotas= px.bar(df1, x=ejex1, y=ejey1, height=400)
+fig_efectivas_cuotas= px.bar(df1, x=ejex1, y=ejey1, height=400,labels={
+                     'index':'Estrato',
+                     'count': "Cantidad de llamadas"})
 fig_marcador = px.scatter(df2, x=ejex2, y=ejey2, height=400)
 
 fig_ejemplo3 = px.scatter(df1, x=ejex1, y=ejey1, height=400)
@@ -77,7 +79,7 @@ grafica_02 = html.Div ([
 # grafica distribucion por estrato scatter
 ###########################################################################
 
-grafica_03 = html.Div ([
-                    dcc.Graph(figure=fig_ejemplo6,id='id_figure_03')
-                ],id='id_grafica_03')
+# grafica_03 = html.Div ([
+#                     dcc.Graph(figure=fig_ejemplo6,id='id_figure_03')
+#                 ],id='id_grafica_03')
 

@@ -1,4 +1,4 @@
-.modebar-container, .dash-debug-menu {
+.modebar-container, .dash-debug-menu, .dash-debug-menu__outer, .dash-debug-menu__outer--closed, .dash-debug-menu__content, .dash-debug-menu__outer--closed {
   visibility: hidden;
 }
 
@@ -51,33 +51,58 @@
 }
 
 .cell-table {
-  margin-top: 40px;
+  margin: 15px;
+  margin-bottom: 15px;
   margin-left: 15px;
+  margin-right: 40px;
 }
 
-
-.blue {
-  color:#fff;
-  background-color: #18418c;
-}
-
-.green {
-  color:#fff;
-  background-color: #0e6d51;
-}
-
-.red {
-  color:#fff;
-  background-color: #d43710;
-}
-
-.grey {
-  color:#fff;
-  background-color: #31383d;
+.tbody {
+  margin-top: 40px;
 }
 
 .tablas {
   font-family: 'Ruda', sans-serif!Important;
   text-align: center;
   font-size: 15px;
+}
+
+.color_01 {
+  color:#000;
+  background-color: #7FDBDA;
+}
+
+.color_02 {
+  color:#000;
+  background-color: #ADE498;
+}
+
+.color_03 {
+  color:#000;
+  background-color: #EDE682;
+}
+
+.color_04 {
+  color:#000;
+  background-color: #FEBF63;
+}
+
+.color_05 {
+  color:#000;
+  background-color: #dff4f3;
+}
+
+.color_06 {
+  color:#000;
+  background-color: #bde4f4;
+}
+
+.color_07 {
+  color:#000;
+  background-color: #b9bbdf;
+}
+
+.color_08 {
+  color:#000;
+  background-color: #fffbe0;
 }

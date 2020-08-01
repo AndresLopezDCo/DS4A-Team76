@@ -54,8 +54,9 @@ from lib import consultas,filtros,graficas
 )
 def cuotas_updater(value_var):
     dff=graficas.df1[graficas.df1['variable']==value_var]
-    fig_efectivas_cuotas = px.bar(dff, x=dff.index, y='count', height=400)
-    
+    fig_efectivas_cuotas = px.bar(dff, x=dff.index, y='count', height=400,labels={
+                     'index':str(value_var),
+                     'count': "Cantidad de llamadas"})
     return fig_efectivas_cuotas
 
 @app.callback (
@@ -65,3 +66,17 @@ def cuotas_updater(value_var):
 def marcador_updater(value_var1):
     fig_marcador = px.scatter(graficas.df2, x=value_var1, y='efectividad_ajustada', height=400)
     return fig_marcador
+
+#-----------------------------------------------------------------------------------------------
+# @app.callback (
+#     Output('id_figure_01','figure'),
+#     [Input('id_efectivas_cuotas','value')]
+# )
+
+# def cuotas_updater(value_var):
+#     dff=graficas.df1[graficas.df1['variable']==value_var]
+#     df_count=df_efectivas.groupby(value_var)[['codenc']].count().rename(columns={'codenc':"count"})
+#     fig_efectivas_cuotas = px.bar(dff, x=dff.index, y='Cantidad de llamadas', height=400)
+    
+#     return fig_efectivas_cuotas
+

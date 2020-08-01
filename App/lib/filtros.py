@@ -62,10 +62,10 @@ filtro_02 = html.Div (children=[
                     html.Label('VARIABLE', className='filtros-label')
                     ,dcc.Dropdown(
                         options=[
-                            {'label': 'Estrato', 'value': 'estrato'}
-                            ,{'label': 'Genero', 'value': 'genero'}
-#                             ,{'label': 'Edad', 'value': 'rango_edad'}
-                        ],id='id_efectivas_cuotas',value='estrato')
+                            {'label': 'Estrato', 'value': 'Estrato'}
+                            ,{'label': 'Genero', 'value': 'Genero'}
+                            ,{'label': 'Edad', 'value': 'etiquetas_rango_edad'}
+                        ],id='id_efectivas_cuotas',value='Estrato')
                 ],id='filtro_02',className='filtros')
 
 ###########################################################################
@@ -86,5 +86,21 @@ filtro_03 = html.Div (children=[
                             {'label': 'Duración efectivas', 'value': 'duracion_efectivas'}
                         ],id='id_marcador',value='calls')
                 ],id='filtro_03',className='filtros')
+
+###########################################################################
+# creamos filtro de slider para modificar por mes los markdown
+###########################################################################
+
+filtro_04 = html.Div (children=[
+                    html.Label('DURACIÓN [MESES]', className='filtros-label')
+                    ,dcc.Slider(
+                        id='my-slider',
+                        min=1,
+                        max=26,
+                        step=1,
+                        value=6,
+                        #mark={1:'1', 2:'2', 3:'3', 4:'4', 5:'5',6:'6'},
+                    ), html.Div(id='id_filtro_04')
+                ],id='filtro_04',className='filtros')
 
 

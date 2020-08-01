@@ -56,27 +56,4 @@ texto_04 = dcc.Markdown ('''
 descripcion_04 = dcc.Markdown ('''
                             DESCRIPCION 4
                         ''',id='id_descripcion_04',className='descripcion')
-texto_05 = dcc.Markdown ('''
-                            1000
-                        ''',id='id_texto_05',className='etiqueta')
-descripcion_05 = dcc.Markdown ('''
-                            DESCRIPCION 1
-                        ''',id='id_descripcion_05',className='descripcion')
-texto_06 = dcc.Markdown ('''
-                            500
-                        ''',id='id_texto_06',className='etiqueta')
-descripcion_06 = dcc.Markdown ('''
-                            DESCRIPCION 2
-                        ''',id='id_descripcion_06',className='descripcion')
-texto_07 = dcc.Markdown ('''
-                            700
-                        ''',id='id_texto_07',className='etiqueta')
-descripcion_07 = dcc.Markdown ('''
-                            DESCRIPCION 3
-                        ''',id='id_descripcion_07',className='descripcion')
-texto_08 = dcc.Markdown ('''
-                            1200
-                        ''',id='id_texto_08',className='etiqueta')
-descripcion_08 = dcc.Markdown ('''
-                            DESCRIPCION 4
-                        ''',id='id_descripcion_08',className='descripcion')
+

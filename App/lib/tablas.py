@@ -36,10 +36,10 @@ tabla_01 = html.Div([
                         data=df.to_dict('records'),
                         style_cell_conditional=[{'if': {'column_id': c},'textAlign': 'left'} for c in [
                             'codenc', 'archivo']],
-                        style_table={'overflowX': 'auto','height': '350px'},
-                        style_header={'backgroundColor': 'rgb(24, 65, 140)','color': 'white','text-align': 'center','font-family': 'Ruda, sans-serif'},
-                        style_cell={'color': 'black','font-family': 'Ruda, sans-serif'},
+                        fixed_rows={'headers': True},
+                        style_table={'overflowY': 'scroll', 'overflowX': 'scroll','height': '350px'},
+                        style_header={'backgroundColor': 'rgb(24, 65, 140)','color': 'white','text-align': 'center','font-family': 'Ruda, sans-serif','margin': '5px'},
+                        style_cell={'minWidth': '60px','color': 'black','font-family': 'Ruda, sans-serif'},
                         style_as_list_view=True,
                         id='id_table_01')
                     ], id='tabla_01',className='tablas')
-

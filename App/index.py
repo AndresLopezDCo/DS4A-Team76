@@ -74,7 +74,8 @@ app.layout = html.Section([
                 ###########################################################
                 ,filtros.filtro_01   #mapa
                 ,filtros.filtro_02   #efectividad - cuotas
-                ,filtros.filtro_03   #Tiempos - Marcador 
+                ,filtros.filtro_03   #Tiempos - Marcador
+                ,filtros.filtro_04   #barra de desplazamiento que modifica los markdown o indicadores
 #                 ,filtros.filtro_1001 # prueba caalbacks
             ],id='nav-accordion', className='sidebar-menu')
         ],id='sidebar', className='nav-collapse ')
@@ -89,34 +90,34 @@ app.layout = html.Section([
                     # tarjeta 1
                 ###########################################################
                 html.Div ([
-                    html.Img(src='assets/logo_01.png', className='icono')
+                    html.Img(src='assets/logo_02.png', className='icono')
                     ,textos.texto_01
                     ,textos.descripcion_01
-                ],className='col-md-3 tarjetas blue')
+                ],className='col-md-3 tarjetas color_01')
                 ###########################################################
                     # tarjeta 2
                 ###########################################################
                 ,html.Div ([
-                    html.Img(src='assets/logo_01.png', className='icono')
+                    html.Img(src='assets/logo_02.png', className='icono')
                     ,textos.texto_02
                     ,textos.descripcion_02
-                ],className='col-md-3 tarjetas grey')
+                ],className='col-md-3 tarjetas color_02')
                 ###########################################################
                     # tarjeta 3
                 ###########################################################
                 ,html.Div ([
-                    html.Img(src='assets/logo_01.png', className='icono')
+                    html.Img(src='assets/logo_02.png', className='icono')
                     ,textos.texto_03
                     ,textos.descripcion_03
-                ],className='col-md-3 tarjetas red')
+                ],className='col-md-3 tarjetas color_03')
                 ###########################################################
                     # tarjeta 4
                 ###########################################################
                 ,html.Div ([
-                    html.Img(src='assets/logo_01.png', className='icono')
+                    html.Img(src='assets/logo_02.png', className='icono')
                     ,textos.texto_04
                     ,textos.descripcion_04
-                ],className='col-md-3 tarjetas green')
+                ],className='col-md-3 tarjetas color_04')
             ],className='row')
             ,html.Div ([
                 html.Div ([
@@ -127,7 +128,6 @@ app.layout = html.Section([
                     # mapa de colombia "mapa 1", descripción "texto 5"
                     #######################################################
                     ,mapas.mapa_01
-#                     ,textos.texto_05
                 ],className='col-md-6 main-chart')
                 ,html.Div ([
                     html.Div ([
@@ -138,8 +138,7 @@ app.layout = html.Section([
                             #######################################################
                             # grafica 1 y texto 6
                             #######################################################
-                            ,graficas.grafica_01
-#                             ,textos.texto_06
+                             ,graficas.grafica_01
                         ],className='col-md-12 main-chart')
                         ,html.Div ([
                             html.Div ([
@@ -149,7 +148,6 @@ app.layout = html.Section([
                             # grafica 2 y texto 7
                             #######################################################
                             ,graficas.grafica_02
-#                             ,textos.texto_07
                         ],className='col-md-12 main-chart')
                     ],className='row')
                 ],className='col-md-6 main-chart')
@@ -163,7 +161,6 @@ app.layout = html.Section([
                     # grafica 3 y texto 8
                     #######################################################
 #                     ,graficas.grafica_03
-#                     ,textos.texto_08
                 ],className='col-md-6 main-chart')
                 ,html.Div ([
                     html.Div ([
@@ -172,8 +169,42 @@ app.layout = html.Section([
                     #######################################################
                     # grafica 3 y texto 3
                     #######################################################
-                    ,tablas.tabla_01
+                     ,tablas.tabla_01
                 ],className='col-md-6 main-chart')
+            ],className='row')
+            ,html.Div ([
+                ###########################################################
+                    # tarjeta 5
+                ###########################################################
+                html.Div ([
+                    html.Img(src='assets/logo_02.png', className='icono')
+                    ,textos.texto_05
+                    ,textos.descripcion_05
+                ],className='col-md-3 tarjetas color_05')
+                ###########################################################
+                    # tarjeta 6
+                ###########################################################
+                ,html.Div ([
+                    html.Img(src='assets/logo_02.png', className='icono')
+                    ,textos.texto_06
+                    ,textos.descripcion_06
+                ],className='col-md-3 tarjetas color_06')
+                ###########################################################
+                    # tarjeta 7
+                ###########################################################
+                ,html.Div ([
+                    html.Img(src='assets/logo_02.png', className='icono')
+                    ,textos.texto_07
+                    ,textos.descripcion_07
+                ],className='col-md-3 tarjetas color_07')
+                ###########################################################
+                    # tarjeta 8
+                ###########################################################
+                ,html.Div ([
+                    html.Img(src='assets/logo_02.png', className='icono')
+                    ,textos.texto_08
+                    ,textos.descripcion_08
+                ],className='col-md-3 tarjetas color_08')
             ],className='row')
         ],className='wrapper')
         ###################################################################

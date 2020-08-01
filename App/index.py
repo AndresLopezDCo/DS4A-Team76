@@ -75,7 +75,9 @@ app.layout = html.Section([
                 ,filtros.filtro_01   #mapa
                 ,filtros.filtro_02   #efectividad - cuotas
                 ,filtros.filtro_03   #Tiempos - Marcador
-                ,filtros.filtro_04   #barra de desplazamiento que modifica los markdown o indicadores
+#                 ,filtros.filtro_04   #Filtro de año
+#                 ,filtros.filtro_05   #Filtro de mes
+                ,filtros.filtro_06   #Slider
 #                 ,filtros.filtro_1001 # prueba caalbacks
             ],id='nav-accordion', className='sidebar-menu')
         ],id='sidebar', className='nav-collapse ')
@@ -160,7 +162,7 @@ app.layout = html.Section([
                     #######################################################
                     # grafica 3 y texto 8
                     #######################################################
-#                     ,graficas.grafica_03
+                    ,graficas.grafica_03
                 ],className='col-md-6 main-chart')
                 ,html.Div ([
                     html.Div ([

@@ -64,7 +64,7 @@ filtro_02 = html.Div (children=[
                         options=[
                             {'label': 'Estrato', 'value': 'Estrato'}
                             ,{'label': 'Genero', 'value': 'Genero'}
-                            ,{'label': 'Edad', 'value': 'etiquetas_rango_edad'}
+                            ,{'label': 'Edad', 'value': 'Edad'}
                         ],id='id_efectivas_cuotas',value='Estrato')
                 ],id='filtro_02',className='filtros')
 
@@ -88,10 +88,49 @@ filtro_03 = html.Div (children=[
                 ],id='filtro_03',className='filtros')
 
 ###########################################################################
-# creamos filtro de slider para modificar por mes los markdown
+# creamos filtro de Top 10 por año
 ###########################################################################
 
 filtro_04 = html.Div (children=[
+                    html.Label('AÑO', className='filtros-label')
+                    ,dcc.Dropdown(
+                        options=[
+                            {'label': '2017', 'value': 2017},
+                            {'label': '2018', 'value': 2018},
+                            {'label': '2019', 'value': 2019},
+                            {'label': '2020', 'value': 2020}
+                        ],id='id_top_year',value=2020)
+                ],id='filtro_04',className='filtros')
+
+###########################################################################
+# creamos filtro de Top 10 por mes
+###########################################################################
+
+filtro_05= html.Div (children=[
+                    html.Label('MES', className='filtros-label')
+                    ,dcc.Dropdown(
+                        options=[
+                            {'label': 'Enero', 'value':1},
+                            {'label': 'Febrero', 'value':2},
+                            {'label': 'Marzo', 'value':3},
+                            {'label': 'Abril', 'value':4},
+                            {'label': 'Mayo', 'value':5},
+                            {'label': 'Junio', 'value':6},
+                            {'label': 'Julio', 'value':7},
+                            {'label': 'Agosto', 'value':8},
+                            {'label': 'Septiembre', 'value':9},
+                            {'label': 'Octubre', 'value':10},
+                            {'label': 'Noviembre', 'value':11},
+                            {'label': 'Diciembre', 'value':12}
+                        ],id='id_top_mes',value=3)
+                ],id='filtro_05',className='filtros')
+
+
+###########################################################################
+# creamos filtro de slider para modificar por mes los markdown
+###########################################################################
+
+filtro_06 = html.Div (children=[
                     html.Label('DURACIÓN [MESES]', className='filtros-label')
                     ,dcc.Slider(
                         id='my-slider',
@@ -100,7 +139,7 @@ filtro_04 = html.Div (children=[
                         step=1,
                         value=6,
                         #mark={1:'1', 2:'2', 3:'3', 4:'4', 5:'5',6:'6'},
-                    ), html.Div(id='id_filtro_04')
-                ],id='filtro_04',className='filtros')
+                    ), html.Div(id='id_filtro_06')
+                ],id='filtro_06',className='filtros')
 
 

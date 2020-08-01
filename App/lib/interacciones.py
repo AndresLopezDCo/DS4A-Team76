@@ -68,15 +68,19 @@ def marcador_updater(value_var1):
     return fig_marcador
 
 #-----------------------------------------------------------------------------------------------
-# @app.callback (
-#     Output('id_figure_01','figure'),
-#     [Input('id_efectivas_cuotas','value')]
-# )
+@app.callback (
+    Output('id_figure_03','figure'),
+    [Input('id_top_year','value'),
+     Input('id_top_mes','value')]
+)
 
-# def cuotas_updater(value_var):
-#     dff=graficas.df1[graficas.df1['variable']==value_var]
-#     df_count=df_efectivas.groupby(value_var)[['codenc']].count().rename(columns={'codenc':"count"})
-#     fig_efectivas_cuotas = px.bar(dff, x=dff.index, y='Cantidad de llamadas', height=400)
-    
+def top_updater(value_year,value_mes):
+    dff=graficas.df3[(graficas.df3['año']==value_year)&(graficas.df3['mes'].isin([value_mes]))]
+    dff=dff.sort_values('count',ascending=False)
+    fig_top = px.bar(dff, x='count', y='codenc', height=500,labels={
+                     'count':'Cantidad de llamadas efectivas',
+                     'codenc':'Encuestador'})
+     
+        
 #     return fig_efectivas_cuotas
 

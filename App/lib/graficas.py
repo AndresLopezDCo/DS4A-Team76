@@ -33,7 +33,7 @@ from app import app
 from lib import consultas, filtros
 
 ###########################################################################
-# creamos variables por graficas
+# creamos variables por graficas y setearlas por defecto
 ###########################################################################
 
 
@@ -45,13 +45,20 @@ df2 = consultas.df_tiempos
 ejex2 = 'calls'
 ejey2 = 'efectividad_ajustada'
 
+df3=consultas.df_efectivas_groupm
+ejex3='count'
+ejey3='codenc'
+
 #Graficas por defecto 
 fig_efectivas_cuotas= px.bar(df1, x=ejex1, y=ejey1, height=400,labels={
                      'index':'Estrato',
-                     'count': "Cantidad de llamadas"})
+                     'count':'Cantidad de llamadas'})
 fig_marcador = px.scatter(df2, x=ejex2, y=ejey2, height=400)
 
-fig_ejemplo3 = px.scatter(df1, x=ejex1, y=ejey1, height=400)
+fig_top = px.bar(df3, x=ejex3, y=ejey3, height=500,labels={
+                     'count':'Cantidad de llamadas efectivas',
+                     'codenc':'Encuestador'})
+
 fig_ejemplo4 = px.box(df1, x=ejex1, y=ejey1)
 fig_ejemplo5 = px.bar(df2, x=ejex2, y=ejey2, height=400)
 fig_ejemplo6 = px.scatter(df2, x=ejex2, y=ejey2, height=400)
@@ -79,7 +86,7 @@ grafica_02 = html.Div ([
 # grafica distribucion por estrato scatter
 ###########################################################################
 
-# grafica_03 = html.Div ([
-#                     dcc.Graph(figure=fig_ejemplo6,id='id_figure_03')
-#                 ],id='id_grafica_03')
+grafica_03 = html.Div ([
+                    dcc.Graph(figure=fig_top,id='id_figure_03')
+                ],id='id_grafica_03')
 

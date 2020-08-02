@@ -91,39 +91,45 @@ filtro_03 = html.Div (children=[
 # creamos filtro de Top 10 por año
 ###########################################################################
 
-filtro_04 = html.Div (children=[
+all_options = {
+                2017:['Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+                2018:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio',
+                    'Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+                2019:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio',
+                    'Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+                2020:['Enero','Febrero','Marzo']
+                     }
+filtro_04=html.Div (children=[
                     html.Label('AÑO', className='filtros-label')
                     ,dcc.Dropdown(
                         options=[
-                            {'label': '2017', 'value': 2017},
-                            {'label': '2018', 'value': 2018},
-                            {'label': '2019', 'value': 2019},
-                            {'label': '2020', 'value': 2020}
-                        ],id='id_top_year',value=2020)
+                           {'label': k, 'value': k} for k in all_options.keys()
+                        ],id='id_year',value=2020)
+                    ,dcc.Dropdown(id='id_mes')
                 ],id='filtro_04',className='filtros')
 
 ###########################################################################
 # creamos filtro de Top 10 por mes
 ###########################################################################
 
-filtro_05= html.Div (children=[
-                    html.Label('MES', className='filtros-label')
-                    ,dcc.Dropdown(
-                        options=[
-                            {'label': 'Enero', 'value':1},
-                            {'label': 'Febrero', 'value':2},
-                            {'label': 'Marzo', 'value':3},
-                            {'label': 'Abril', 'value':4},
-                            {'label': 'Mayo', 'value':5},
-                            {'label': 'Junio', 'value':6},
-                            {'label': 'Julio', 'value':7},
-                            {'label': 'Agosto', 'value':8},
-                            {'label': 'Septiembre', 'value':9},
-                            {'label': 'Octubre', 'value':10},
-                            {'label': 'Noviembre', 'value':11},
-                            {'label': 'Diciembre', 'value':12}
-                        ],id='id_top_mes',value=3)
-                ],id='filtro_05',className='filtros')
+# filtro_05= html.Div (children=[
+#                     html.Label('MES', className='filtros-label')
+#                     ,dcc.Dropdown(
+#                         options=[
+#                             {'label': 'Enero', 'value':1},
+#                             {'label': 'Febrero', 'value':2},
+#                             {'label': 'Marzo', 'value':3},
+#                             {'label': 'Abril', 'value':4},
+#                             {'label': 'Mayo', 'value':5},
+#                             {'label': 'Junio', 'value':6},
+#                             {'label': 'Julio', 'value':7},
+#                             {'label': 'Agosto', 'value':8},
+#                             {'label': 'Septiembre', 'value':9},
+#                             {'label': 'Octubre', 'value':10},
+#                             {'label': 'Noviembre', 'value':11},
+#                             {'label': 'Diciembre', 'value':12}
+#                         ],id='id_top_mes',value=3)
+#                 ],id='filtro_05',className='filtros')
 
 
 ###########################################################################

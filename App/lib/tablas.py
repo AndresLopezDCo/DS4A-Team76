@@ -25,21 +25,26 @@ warnings.filterwarnings('ignore')
 from app import app
 from lib import consultas
 
+
 ###########################################################################
 # creamos las tablas 
 ###########################################################################
 
-df = consultas.df_porc_tabla
+# df = consultas.df_porc_tabla
+dff=consultas.df_efec_completed[(consultas.df_efec_completed['año']==2020)&(consultas.df_efec_completed['mes']=='Enero')]
 
-tabla_01 = html.Div([
-                    dte.DataTable(columns=[{"name": c, "id": c} for c in df.columns],
-                        data=df.to_dict('records'),
-                        style_cell_conditional=[{'if': {'column_id': c},'textAlign': 'left'} for c in [
-                            'codenc', 'archivo']],
-                        fixed_rows={'headers': True},
+
+tabla_01 = html.Div ([
+                    dte.DataTable(columns=[{"name": c, "id": c} for c in dff.columns],data=dff.head(10).to_dict('records'),
+                        style_cell_conditional=[{'if': {'column_id': c},'textAlign': 'left'} for c in ['codenc', 'archivo']],
+                        fixed_columns={'headers': True, 'data': 1},
                         style_table={'overflowY': 'scroll', 'overflowX': 'scroll','height': '400px'},
-                        style_header={'backgroundColor': 'rgb(24, 65, 140)','color': 'white','text-align': 'center','font-family': 'Ruda, sans-serif','margin': '5px'},
+                        style_header={'backgroundColor': 'rgb(24, 65, 140)',
+                                      'color': 'white','text-align': 'center',
+                                      'font-family': 'Ruda, sans-serif','margin': '5px'},
                         style_cell={'minWidth': '60px','color': 'black','font-family': 'Ruda, sans-serif'},
-                        style_as_list_view=True,
-                        id='id_table_01')
-                    ], id='tabla_01',className='tablas')
+                        style_as_list_view=True,id='id_table_01')
+                ],id='tabla_01')
+
+
+

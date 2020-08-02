@@ -45,7 +45,7 @@ df2 = consultas.df_tiempos
 ejex2 = 'calls'
 ejey2 = 'efectividad_ajustada'
 
-df3=consultas.df_efectivas_groupm
+df3=consultas.df_efec_completed
 ejex3='count'
 ejey3='codenc'
 
@@ -55,7 +55,7 @@ fig_efectivas_cuotas= px.bar(df1, x=ejex1, y=ejey1, height=400,labels={
                      'count':'Cantidad de llamadas'})
 fig_marcador = px.scatter(df2, x=ejex2, y=ejey2, height=400)
 
-fig_top = px.bar(df3, x=ejex3, y=ejey3, height=500,labels={
+fig_top = px.bar(df3.head(20), x=ejex3, y=ejey3, height=450,labels={
                      'count':'Cantidad de llamadas efectivas',
                      'codenc':'Encuestador'})
 

@@ -1,4 +1,4 @@
-.modebar-container, .dash-debug-menu, .dash-debug-menu__outer, .dash-debug-menu__outer--closed, .dash-debug-menu__content, .dash-debug-menu__outer--closed {
+.modebar-container, .dash-debug-menu, .dash-debug-menu__outer, .dash-debug-menu__outer--closed, .dash-debug-menu__content, .dash-debug-menu__outer--closed, .dash-debug-alert-label {
   visibility: hidden;
 }
 
@@ -58,7 +58,7 @@
 }
 
 .tbody {
-  margin-top: 40px;
+  margin-top: 80px;
 }
 
 .tablas {
@@ -105,4 +105,45 @@
 .color_08 {
   color:#000;
   background-color: #fffbe0;
+}
+
+.background_img {
+  width:100%;
+  height:800;
+  margin-bottom: 30px;
+  padding: 0px;
+}
+
+.team_img {
+  width:100%;
+}
+
+.grayscale {
+  filter: grayscale(50%);
+  font-family: 'Ruda', sans-serif!Important;
+  text-align: justify;
+}
+
+.opacity {
+  opacity: 0.60;
+}
+
+.about_text {
+  text-align: justify;
+  font-size: 15px;
+  padding: 5px 0px 15px 0px;
+}
+
+.contact {
+  font-family: 'Ruda', sans-serif!Important;
+  text-align: center;
+  color: #fff;
+  background-color: #124188;
+  padding: 10px 60px 10px 60px;
+  margin-bottom: 10px;
+  width: 100;
+}
+
+.about {
+  margin: 0 0 30px;
 }

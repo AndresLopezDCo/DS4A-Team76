@@ -80,3 +80,18 @@ texto_08 = dcc.Markdown ('''
 descripcion_08 = dcc.Markdown ('''
                             DESCRIPCION 4
                         ''',id='id_descripcion_08',className='descripcion')
+about_01 = dcc.Markdown ('''
+                            Ingeniero en ciencia de materiales y metalurgia, con experiencia en gestión de información, análisis de elementos finitos e integridad de activos en el sector energético
+                        ''',id='id_about_01',className='about_text')
+about_02 = dcc.Markdown ('''
+                            Estadística y Máster en Modelado & Simulación con +7 años de experiencia en investigación de mercados y desarrollo de modelos analíticos
+                        ''',id='id_about_02',className='about_text')
+about_03 = dcc.Markdown ('''
+                            Aqui viene la descripcion del perfil de yesica, Aqui viene la descripcion del perfil de yesica, Aqui viene la descripcion del perfil de yesica
+                        ''',id='id_about_03',className='about_text')
+about_04 = dcc.Markdown ('''
+                            Economista y Magister en Finanzas con más de siete (7) años de experiencia en finanzas, inteligencia de mercados y analitica de negocios
+                        ''',id='id_about_04',className='about_text')
+about_05 = dcc.Markdown ('''
+                            Ingeniero de Sistemas Especialista en Gerencia de Proyectos en Inteligencia de Negocios con más de quince (15) años de experiencia en BI, PMP y Analitica. 
+                        ''',id='id_about_05',className='about_text')

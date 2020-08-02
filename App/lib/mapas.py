@@ -65,7 +65,7 @@ with urlopen('https://gist.githubusercontent.com/john-guerra/43c7656821069d00dcb
                         locations=locs,
                         z=[18,16,13,15,17,13,13,13,13,13,13,13,13,13,13,13,19,17,14],
                         colorscale='ylgnbu',
-                        colorbar_title="DEPARTAMENTO"))
+                        colorbar_title="Dpto"))
     Map_Fig.update_layout(mapbox_style="carto-positron",
                             mapbox_zoom=5,
                             height=800,

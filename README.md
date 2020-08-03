@@ -11,7 +11,7 @@ The app can be viewed into  http://ec2-3-22-235-2.us-east-2.compute.amazonaws.co
 
 ![app](app.jpg)
 
-We use Dash, Ploty, mathplotlib, sklearn an the most popular libraries in python. 
+We use Dash, Ploty, mathplotlib, sklearn and the most popular libraries in python. 
 
 
 ### CONTENT 🖇️
@@ -19,7 +19,7 @@ We use Dash, Ploty, mathplotlib, sklearn an the most popular libraries in python
 This repository has 4 main folders. 
 
 
-* App: The App development is carry out in different modules
+* App: The App development is carry out in different modules.
 * Mintic - ECAR: This folder contains the raw data, of course it is privated, so it is a hidden folder. 
 * Scripts: The scripts has some jupyter notebooks about data analysis previous the App development. 
 * data_etls: This folder has the final and processed datasets to load into RDS in AWS, this is a hidden folder too.  
@@ -74,7 +74,7 @@ This project is under the License (Your License) - see the file [LICENSE.md] (LI
 
 ## Expresiones de Gratitud 🎁
 
-* We are a fantastic group and we are, we love working together for this project  📢 🍺
+* We are a fantastic group and we love working together for this project. 📢 🍺
 * We really appreciate this data science course. It was amazing 🤓.Thanks mintic, thanks Correlation One. 
 * CNC: That was really nice of you to allow us to do an exhaustive develop and analysis of CAR project
 

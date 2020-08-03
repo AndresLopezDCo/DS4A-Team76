@@ -32,7 +32,7 @@ from sqlalchemy import create_engine, text
 ###########################################################################
 
 from app import app
-from lib import filtros, textos , graficas,mapas , tablas#, interacciones
+from lib import filtros, textos , graficas, mapas , tablas#, interacciones
 
 ###########################################################################
 # crear contenido html

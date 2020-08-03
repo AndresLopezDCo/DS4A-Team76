@@ -147,3 +147,26 @@
 .about {
   margin: 0 0 30px;
 }
+
+.info {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.ancho {
+  width: 100%;
+}
+
+.titulo {
+  font-family: 'Ruda', sans-serif!Important;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #124188;
+}
+
+.information {
+  margin-left: 15px;
+  margin-right: 10px;
+  width: 98%;
+}

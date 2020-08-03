@@ -32,11 +32,9 @@ filtro_01 = html.Div (children=[
                     html.Label('FILTRO MAPA', className='filtros-label')
                     ,dcc.Dropdown(
                         options=[
-                            {'label': 'LLAMADAS EFECTIVAS', 'value': '1'}
-                            ,{'label': 'DURACION LLAMADAS', 'value': '2'}
-                            ,{'label': 'NUMERO DE CUOTAS', 'value': '3'}
-                            ,{'label': 'PORC LLAMADAS EFECTIVAS', 'value': '4'}
-                        ],id='id_flt_mapa_01',value='1')
+                            {'label': 'Llamadas efectivas', 'value': 'N_Efectivas'}
+                            ,{'label': 'Duración promedio', 'value': 'duracion'}
+                        ],id='id_flt_mapa_01',value='N_Efectivas')
                 ],id='id_filtro_01',className='filtros')
 
 ###########################################################################
@@ -112,24 +110,16 @@ filtro_04=html.Div (children=[
 # creamos filtro de Top 10 por mes
 ###########################################################################
 
-# filtro_05= html.Div (children=[
-#                     html.Label('MES', className='filtros-label')
-#                     ,dcc.Dropdown(
-#                         options=[
-#                             {'label': 'Enero', 'value':1},
-#                             {'label': 'Febrero', 'value':2},
-#                             {'label': 'Marzo', 'value':3},
-#                             {'label': 'Abril', 'value':4},
-#                             {'label': 'Mayo', 'value':5},
-#                             {'label': 'Junio', 'value':6},
-#                             {'label': 'Julio', 'value':7},
-#                             {'label': 'Agosto', 'value':8},
-#                             {'label': 'Septiembre', 'value':9},
-#                             {'label': 'Octubre', 'value':10},
-#                             {'label': 'Noviembre', 'value':11},
-#                             {'label': 'Diciembre', 'value':12}
-#                         ],id='id_top_mes',value=3)
-#                 ],id='filtro_05',className='filtros')
+filtro_05= html.Div (children=[
+                    html.Label('ClUSTER', className='filtros-label')
+                    ,dcc.Dropdown(
+                        options=[
+                            {'label': 'Cluster 0', 'value':0},
+                            {'label': 'Cluster 1', 'value':1},
+                            {'label': 'Cluster 2', 'value':2},
+                            {'label': 'Cluster 3', 'value':3}
+                        ],id='id_cluster',value=0)
+                ],id='filtro_05',className='filtros')
 
 
 ###########################################################################

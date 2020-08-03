@@ -37,8 +37,8 @@ dff=consultas.df_efec_completed[(consultas.df_efec_completed['año']==2020)&(con
 tabla_01 = html.Div ([
                     dte.DataTable(columns=[{"name": c, "id": c} for c in dff.columns],data=dff.head(10).to_dict('records'),
                         style_cell_conditional=[{'if': {'column_id': c},'textAlign': 'left'} for c in ['codenc', 'archivo']],
-#                         fixed_columns={'headers': True, 'data': 1},
-                        style_table={'overflowY': 'scroll', 'overflowX': 'scroll','height': '400px'},
+#                         fixed_row={'headers': True, 'data': 1},
+                        style_table={'overflowY': 'scroll', 'overflowX': 'scroll','height': '350px'},
                         style_header={'backgroundColor': 'rgb(24, 65, 140)',
                                       'color': 'white','text-align': 'center',
                                       'font-family': 'Ruda, sans-serif','margin': '5px'},

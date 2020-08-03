@@ -10,6 +10,8 @@ import json
 import warnings
 warnings.filterwarnings('ignore')
 from sqlalchemy import create_engine, text
+import sklearn
+from math import pi
 
 ###########################################################################
 # referenciamos py externos
@@ -23,7 +25,7 @@ from lib import conexion
 ###########################################################################
 
 ##################################################################################################
-#   Consultqa - Top 10 Tabla
+#   Consultqa - Top numero de llamadas efectivas por estrato - genero y edad
 ##################################################################################################
 query_01= """
 SELECT * FROM efectivas_final;
@@ -31,16 +33,35 @@ SELECT * FROM efectivas_final;
 df_efectivas = conexion.runQuery(query_01)
 df_efectivas['Edad'].replace('12 a 17 años','12 a 17',inplace=True)
 df_efectivas_cuotas=pd.DataFrame()
+
 for i in ['Estrato', 'Genero','Edad']:
     df_count=df_efectivas.groupby(i)[['codenc']].count().rename(columns={'codenc':"count"})
     df_count['variable']=i
     df_efectivas_cuotas=pd.concat([df_count, df_efectivas_cuotas])
-    
+
 
 df_efectivas_cuotas=df_efectivas_cuotas.sort_values('count',ascending=False)
-
 ##################################################################################################
-#   Consultqa - Top 10 Tabla
+#   Consulta añadir departamento para el mapa
+##################################################################################################
+df_efectivas['dpto']="vacio"
+
+lista1=['Cali', 'Neiva', 'Pasto', 'Bucaramanga', 'Bogotá', 'Ibagué',
+       'Cúcuta', 'Pereira', 'Medellín', 'Armenia', 'Manizales',
+       'Villavicencio', 'Cartagena', 'Barranquilla', 'Montería',
+       'Popayán', 'Santa Marta', 'Tunja']
+lista2=['VALLE DEL CAUCA','HUILA','NARIÑO','SANTANDER','SANTAFE DE BOGOTA D.C',
+       'TOLIMA','NORTE DE SANTANDER','RISARALDA','ANTIOQUIA','QUINDIO','CALDAS',
+       'META','BOLIVAR','ATLANTICO','CORDOBA','CAUCA','MAGDALENA','BOYACA']
+
+for i,j in zip(lista1,lista2):
+    df_efectivas.loc[df_efectivas['Ciudad']==i,['dpto']]=j
+
+df_mapa=np.round(df_efectivas.groupby('dpto').agg({'codenc':'count','duracion':'mean'}).reset_index().rename(columns={'codenc':'N_Efectivas'}))
+
+df_mapa['duracion']=df_mapa['duracion'].astype(int)
+##################################################################################################
+#   Consultqa -Efectividad vs llamadas, duración total, espera, hablado..
 ##################################################################################################
 
 query_02=""" select * from ecar_dwh.ecar_dwh_base_modelo """
@@ -52,38 +73,53 @@ cols=['calls', 'total', 'espera', 'hablado', 'disponible', 'pausas',
 df_tiempos=df_modelo[cols]
 
 ##################################################################################################
-#   Consultqa - Top 10 Tabla
+#   Consultqa - Random Forest
 ##################################################################################################
-cols2=['efectivas_mujer', 'efectivas_hombre','efectivas_alto', 'efectivas_medio_alto', 'efectivas_medio_medio','efectivas_bajo', 'efectivas_medio_bajo', 'efectivas_tunja',
-       'efectivas_popayán', 'efectivas_montería', 'efectivas_manizales','efectivas_armenia', 'efectivas_villavicencio', 'efectivas_pasto','efectivas_cúcuta', 'efectivas_santa_marta', 'efectivas_ibagué',
-       'efectivas_neiva', 'efectivas_pereira', 'efectivas_cartagena','efectivas_cali', 'efectivas_bucaramanga', 'efectivas_barranquilla','efectivas_medellín', 'efectivas_bogotá', 'efectivas_rango_edad_5',
-       'efectivas_rango_edad_2', 'efectivas_rango_edad_4','efectivas_rango_edad_3', 'efectivas_rango_edad_1']
-df_modelo=df_modelo[df_modelo['codenc']!='Encuestador 290']
-for i in cols2:
-    df_modelo["%" + str(i)]=round((df_modelo[i]/df_modelo['efectividad_ajustada'])*100).astype(int)
-    
-df_modelo['efectividad_ajustada']=round(df_modelo['efectividad_ajustada']).astype(int)
-df_porc_tabla=df_modelo[['codenc','efectividad_ajustada','meses_trabajados','como_conocio_cnc','localidad','educacion_formal','estado_educacion','nombre_educacion',
-         '%efectivas_mujer', '%efectivas_hombre', '%efectivas_alto','%efectivas_medio_alto', '%efectivas_medio_medio',
-         '%efectivas_bajo', '%efectivas_medio_bajo','%efectivas_tunja', '%efectivas_popayán','%efectivas_montería', 
-         '%efectivas_manizales','%efectivas_armenia', '%efectivas_villavicencio','%efectivas_pasto', '%efectivas_cúcuta',
-         '%efectivas_santa_marta', '%efectivas_ibagué','%efectivas_neiva', '%efectivas_pereira','%efectivas_cartagena', '%efectivas_cali',
-         '%efectivas_bucaramanga', '%efectivas_barranquilla','%efectivas_medellín', '%efectivas_bogotá','%efectivas_rango_edad_5', '%efectivas_rango_edad_2',
-         '%efectivas_rango_edad_4', '%efectivas_rango_edad_3','%efectivas_rango_edad_1']]
 
-df_porc_tabla=df_porc_tabla.sort_values('efectividad_ajustada',ascending=False)
+objecto = pd.read_pickle('C:\\Users\\A.Lopez\\Desktop\\DS4A-Team76\\App\data\\rforest.pickle')
+
+# query_basetest=""" select * from ecar_dwh.ecar_dwh_base_test;"""
+# X_test = conexion.runQuery(query_basetest)
+# y_pred=objecto.predict(X_test)
+
+cols=['calls', 'espera', 'hablado', 'disponible', 'pausas', 'muerto' ,'duracion_efectivas', 'dias_trabajados', 
+      'meses_trabajados','competencias_funcionales','numeros', 'lectura_voz_alta','fluidez_lectura', 
+      'cartografia', 'competencias_organizacionales', 'sumar', 'coherencia_entre_numeros',
+      'como_conocio_cnc_internet_computrabajo_com','como_conocio_cnc_internet_pagina_web_del_cnc',
+      'como_conocio_cnc_otros','como_conocio_cnc_voz_a_vozreferido_por_un_conocido','localidad_centro_oriente',
+      'localidad_norte', 'localidad_otros','localidad_sur', 'localidad_sur_occidente',
+      'educacion_formal_bachiller', 'educacion_formal_profesional','educacion_formal_tecnólogo', 
+      'educacion_formal_técnico','estado_educacion_actualmente', 'estado_educacion_aplazado',
+      'estado_educacion_culminado', 'nombre_educacion_ciencias_administrativas_y_contables',
+      'nombre_educacion_ciencias_ambientales_y_salud','nombre_educacion_otros']
+
+
+importances = objecto.feature_importances_
+indices = np.argsort(importances)[::-1]
+names = [cols[i] for i in indices]
+datos_importances=pd.DataFrame({'covar': names, 'coef': importances[indices]})
 
 ##################################################################################################
-#   Consulta - Top 10 Filtro de Año y Mes
+#   Consulta - Cluster
 ##################################################################################################
-df_efectivas['mes']= pd.DatetimeIndex(df_efectivas['fecha']).month
-df_efectivas['dia']= pd.DatetimeIndex(df_efectivas['fecha']).day
-df_efectivas['año']= pd.DatetimeIndex(df_efectivas['fecha']).year
-df_efectivas['mes'].replace({1:'Enero',2:'Febrero',3:'Marzo',4:'Abril',5:'Mayo',6:'Junio',
-                            7:'Julio',8:'Agosto',9:'Septiembre',10:'Octubre',11:'Noviembre',12:'Diciembre'},inplace=True)
-df_efectivas_groupm=df_efectivas.groupby(['codenc','mes','año']).agg({'Edad':'count','dia':'nunique','duracion':'mean'}).reset_index().rename(columns={'Edad':'count','dia':'dias_trabajados'})
-df_efectivas_groupm=df_efectivas_groupm.sort_values('count',ascending=False)
-#-----------------------------------------------------------
+
+query_basecluster=""" select * from ecar_dwh.ecar_dwh_base_closter;"""
+df_cluster = conexion.runQuery(query_basecluster)
+
+df_radar = pd.crosstab(df_cluster['cluster'], df_cluster['educacion_formal'])
+df_radar.columns=['Bachiller', 'No_disponible', 'Profesional', 'Tecnologo', 'Tecnico']
+df_radar=df_radar.reset_index()
+print(df_radar.shape)
+df_radar.head()
+# number of variable
+categories=list(df_radar)[1:]
+
+
+
+
+##################################################################################################
+#   Consulta - Top 10 Filtro de Año y Mes en Tabla y grafico 3 (Top 10)
+##################################################################################################
 query_efec_completed= """select * from ecar_dwh.ecar_dwh_base_top;"""
 df_efec_completed = conexion.runQuery(query_efec_completed)
 df_efec_completed=df_efec_completed.sort_values('count',ascending=False)

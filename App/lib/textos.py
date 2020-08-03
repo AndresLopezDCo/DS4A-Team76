@@ -95,3 +95,48 @@ about_04 = dcc.Markdown ('''
 about_05 = dcc.Markdown ('''
                             Ingeniero de Sistemas Especialista en Gerencia de Proyectos en Inteligencia de Negocios con más de quince (15) años de experiencia en BI, PMP y Analitica. 
                         ''',id='id_about_05',className='about_text')
+informacion_01 = dcc.Markdown ('''
+                            Aqui aparecerá el Logo del Centro Nacional de Consultoria con el fin de identificar nuestro cliente externo, así mismo podemos dar clic en el con el fin
+                            de poder dirigirnos al dashboard
+                        ''',id='id_info_01',className='about_text')
+informacion_02 = dcc.Markdown ('''
+                            Aqui podemos encontrar unos botones que permitiran visualizar los resultados de los modelos (modelos), 
+                            junto con una descripción acerca del equipo de trabajo (acerca team76) en donde podran visualizar los perfiles de los cientificos de datos,
+                            al igual puedes ingresar nuevamente a el dashboard (dashboard) en cualquier momento.
+                        ''',id='id_info_02',className='about_text')
+informacion_03 = dcc.Markdown ('''
+                            Permite al usuario elegir la variable que quiere consultar en el mapa para la ver la distribución por departamento. Opciones: llamadas efectivas, duración llamadas, numero de cuotas, porcentaje de llamadas efectivas sobre el total de llamadas
+                        ''',id='id_info_03',className='about_text')
+informacion_04 = dcc.Markdown ('''
+                            Modifica la visualización del grafico “llamadas efectivas” para que el usuario puede ver la distribución de las llamadas efectivas. Opciones: estrato, genero, edad del encuestado
+                        ''',id='id_info_04',className='about_text')
+informacion_05 = dcc.Markdown ('''
+                            Modifica la visualización del grafico “efectividad vs tiempos” para que el usuario puede ver la relación entre efectividad y las diferentes variables de la base de marcador automático. Opciones: Duración hablado, total llamadas, Duración total, Duración espera, Duración hablado, Duración disponible, Duración pausas 
+                        ''',id='id_info_05',className='about_text')
+informacion_06 = dcc.Markdown ('''
+                            Permite al usuario elegir el periodo en el que quiere consultar el top 10 de encuestadores con más llamadas efectivas (tanto el grafico, como la tabla con las características)
+                        ''',id='id_info_06',className='about_text')
+informacion_07 = dcc.Markdown ('''
+                            En este mapa interactivo el usuario puede ver la distribución por ciudad de país de las diferentes variables de interés (llamadas efectivas, duración llamadas, numero de cuotas, porcentaje de llamadas efectivas sobre el total de llamadas) 
+                        ''',id='id_info_07',className='about_text')
+informacion_08 = dcc.Markdown ('''
+                            Este grafico de barras muestra la distribución de las llamadas efectivas de acuerdo a diferentes características del publico encuestado (estrato, genero, edad), el grafico cambia de acuerdo a la variable que se desee consultar y que se seleccione en el filtro “VARIABLE” 
+                        ''',id='id_info_08',className='about_text')
+informacion_09 = dcc.Markdown ('''
+                            En este grafico el usuario puede ver la relación entre la efectividad (llamadas efectivas) y las diferentes variables de la base de marcador automático (duración total, tiempo hablado, tiempo en espera, tiempo disponible, tiempo muerto), el grafico cambia de acuerdo a la variable de marcador que se desee consultar y que se seleccione en el filtro 
+                        ''',id='id_info_09',className='about_text')
+informacion_10 = dcc.Markdown ('''
+                            Este grafico muestra de mayor a menor el top de encuestadores que realizaron más llamadas en un periodo determinado, para elegir qué periodo se quiere consultar el usuario debe elegir el año y el mes del filtro “Año” en la sección de filtros 
+                        ''',id='id_info_10',className='about_text')
+informacion_11 = dcc.Markdown ('''
+                            Esta tabla muestra las principales características de los encuestadores mostrados en el top 10 (de acuerdo con la informacion compartida por la entidad)
+                        ''',id='id_info_11',className='about_text')
+informacion_12 = dcc.Markdown ('''
+                            se puede acceder a los diferentes filtros que afectan las gráficas y la información presentada
+                        ''',id='id_info_12',className='about_text')
+informacion_13 = dcc.Markdown ('''
+                            aqui se detallan los principales indicadores (kpi) de conformidad con el analisis exploratorio de datos (eda)
+                        ''',id='id_info_12',className='about_text')
+informacion_14 = dcc.Markdown ('''
+                            se puede acceder a los diferentes filtros que afectan las gráficas y la información presentada
+                        ''',id='id_info_12',className='about_text')

@@ -73,12 +73,124 @@ page_3_layout = html.Section([
             # contenido
             ###############################################################
             html.Div ([
+                    #######################################################
+                    # background
+                    #######################################################
+                    html.Img(src='assets/background2.jpg', className='background_img')
+            ],className='centered')
+            ,html.Div ([
                 html.Br ()
                 ,html.Div ([
-                    'AQUI VIENE EL CONTENIDO'
-                ],className='col-md-12 centered')
+                    'HEADER - CABECERA'
+                ],className='col-12 centered titulo')
+                ,html.Div ([
+                    html.Img(src='assets/info/header.jpg', className='centered info ancho')
+                ],className='col-12 centered')
+                ,html.Div ([
+                    html.Img(src='assets/info/logo.jpg', className='centered info')
+                ],className='col-4 centered')
+                ,html.Div ([
+                    textos.informacion_01
+                ],className='col-8 centered')
+                ,html.Div ([
+                    html.Img(src='assets/info/modulos.jpg', className='centered info')
+                ],className='col-4 centered')
+                ,html.Div ([
+                    textos.informacion_02
+                ],className='col-8 centered')
             ],className='row')
-        ],className='wrapper')
+            ,html.Div ([
+                html.Br ()
+                ,html.Div ([
+                    'KPI - INDICADORES'
+                ],className='col-12 centered titulo')
+                ,html.Div ([
+                    html.Img(src='assets/info/kpi.jpg', className='centered info ancho')
+                ],className='col-12 centered')
+                ,html.Div ([
+                    textos.informacion_13
+                ],className='col-12 centered')
+            ],className='row')
+            ,html.Div ([
+                html.Br ()
+                ,html.Div ([
+                    'SIDERBAR - MENU DE FILTROS'
+                ],className='col-12 centered titulo')
+                ,html.Div ([
+                    html.Img(src='assets/info/siderbar.jpg', className='centered info ancho')
+                ],className='col-12 centered')
+                ,html.Div ([
+                    html.Img(src='assets/info/f_mapa.jpg', className='centered info')
+                ],className='col-4 centered')
+                ,html.Div ([
+                    textos.informacion_03
+                ],className='col-8 centered')
+                ,html.Div ([
+                    html.Img(src='assets/info/f_variable.jpg', className='centered info')
+                ],className='col-4 centered')
+                ,html.Div ([
+                    textos.informacion_04
+                ],className='col-8 centered')
+                ,html.Div ([
+                    html.Img(src='assets/info/f_marcador.jpg', className='centered info')
+                ],className='col-4 centered')
+                ,html.Div ([
+                    textos.informacion_05
+                ],className='col-8 centered')
+                ,html.Div ([
+                    html.Img(src='assets/info/f_year.jpg', className='centered info')
+                ],className='col-4 centered')
+                ,html.Div ([
+                    textos.informacion_06
+                ],className='col-8 centered')
+            ],className='row')
+            ,html.Div ([
+                html.Br ()
+                ,html.Div ([
+                    'CONTENT - CONTENIDO'
+                ],className='col-12 centered titulo')
+                ,html.Div ([
+                    html.Img(src='assets/info/content.jpg', className='centered info ancho')
+                ],className='col-12 centered')
+                ,html.Div ([
+                    html.Img(src='assets/info/mapa.jpg', className='centered info')
+                ],className='col-4 centered')
+                ,html.Div ([
+                    textos.informacion_03
+                ],className='col-8 centered')
+                ,html.Div ([
+                    html.Img(src='assets/info/efectividad.jpg', className='centered info')
+                ],className='col-4 centered')
+                ,html.Div ([
+                    textos.informacion_04
+                ],className='col-8 centered')
+                ,html.Div ([
+                    html.Img(src='assets/info/encuestadores.jpg', className='centered info')
+                ],className='col-4 centered')
+                ,html.Div ([
+                    textos.informacion_05
+                ],className='col-8 centered')
+                ,html.Div ([
+                    html.Img(src='assets/info/tabla.jpg', className='centered info')
+                ],className='col-4 centered')
+                ,html.Div ([
+                    textos.informacion_06
+                ],className='col-8 centered')
+            ],className='row')
+            ,html.Div ([
+                html.Br ()
+                ,html.Div ([
+                    'DETAILS - DETALLES'
+                ],className='col-12 centered titulo')
+                ,html.Div ([
+                    html.Img(src='assets/info/tarjetas.jpg', className='centered info ancho')
+                ],className='col-12 centered')
+                ,html.Div ([
+                    textos.informacion_14
+                ],className='col-12 centered')
+            ],className='row')
+            ,html.Br ()
+        ],className='wrapper information')
         ###################################################################
         # pie de pagina
         ###################################################################
@@ -92,9 +204,9 @@ page_3_layout = html.Section([
                 ,html.A ([
                     html.I ([
                     ],className='fa fa-angle-up')
-                ],href='index.py#', className='go-top')
+                ],href='/page-3', className='go-top')
             ],className='text-center')
         ],className='site-footer2')
-    ],id='main-content2')
+    ],id='main-content2 ')
 ],id='container')
 

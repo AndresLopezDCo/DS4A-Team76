@@ -70,10 +70,9 @@ We are TEAM-76
 
 ## LICENSE 📄
 
-This project is under the License (Your License) - see the file [LICENSE.md] (LICENSE.md) for details.
+This project is under the License (LICENSE.md) - see the file [LICENSE.md](LICENSE.md) for details.
 
-## Expresiones de Gratitud 🎁
-
+## THANKS A LOT!  🎁
 * We are a fantastic group and we love working together for this project. 📢 🍺
 * We really appreciate this data science course. It was amazing 🤓.Thanks mintic, thanks Correlation One. 
 * CNC: That was really nice of you to allow us to do an exhaustive develop and analysis of CAR project

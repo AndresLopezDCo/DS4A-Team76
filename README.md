@@ -6,8 +6,7 @@ This github repository contains the implementation of the app about  ECAR projec
 
 ### FINAL DASH (FRONT-END)📋
 
-The app can be viewed into  http://ec2-3-22-235-2.us-east-2.compute.amazonaws.com:8080
-
+The app can be viewed into http://ec2-3-14-13-172.us-east-2.compute.amazonaws.com:8050
 
 ![app](app.jpg)
 

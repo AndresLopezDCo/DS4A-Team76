@@ -9,7 +9,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, State, ClientsideFunction
 from dash.exceptions import PreventUpdate
 
-
+import pandas as pd
 import json
 import certifi
 import ssl
@@ -99,9 +99,9 @@ def mapa_updater(value_var):
 )
 def cuotas_updater(value_var):
     dff=graficas.df1[graficas.df1['variable']==value_var]
-    fig_efectivas_cuotas = px.bar(dff, x=dff.index, y='count', height=400,labels={
-                     'index':str(value_var),
-                     'count': "Cantidad de llamadas"})
+    fig_efectivas_cuotas = px.bar(dff, x=dff.index, y='count', height=400,color=dff.index,
+                                  labels={'index':str(value_var),'count': "Cantidad de llamadas"},
+                                  color_discrete_sequence= px.colors.sequential.Darkmint)
     return fig_efectivas_cuotas
 
 ###############################################################################
@@ -113,7 +113,7 @@ def cuotas_updater(value_var):
     [Input('id_marcador','value')]
 )
 def marcador_updater(value_var1):
-    fig_marcador = px.scatter(graficas.df2, x=value_var1, y='efectividad_ajustada', height=400)
+    fig_marcador = px.scatter(graficas.df2, x=value_var1, y='efectividad_ajustada', color=value_var1,height=400,color_continuous_scale=px.colors.diverging.Portland)
     return fig_marcador
 
 ###############################################################################
@@ -178,7 +178,8 @@ def top_updater(value_year1,value_mes1):
     [Input('id_marcador','value')]
 )
 def cluster_updater(value_var2):
-    fig_cluster = px.scatter(graficas.df5, x=value_var2, y='efectividad_ajustada', height=400, color = 'cluster')
+    fig_cluster = px.scatter(graficas.df5, x=value_var2, y='efectividad_ajustada', height=400, color = 'cluster',
+                             category_orders={'cluster':['0','1','2','3']})
     return fig_cluster
 
 ###############################################################################
@@ -189,19 +190,10 @@ def cluster_updater(value_var2):
     Output('id_figure_06','figure'),
     [Input('id_cluster','value')]
 )
-def cluster_updater(value_var3):
+def radar_updater(value_var3):
     df6=consultas.df_radar
-    N = len(consultas.categories)
     values=df6.loc[value_var3].drop(['cluster']).values.flatten().tolist()
-    values += values[:1]
-    angles = [n / float(N) * 2 * pi for n in range(N)]
-    angles += angles[:1]
-    ax = plt.subplot(111, polar=True)
-    plt.xticks(angles[:-1], consultas.categories, color='grey', size=15)
-    ax.set_rlabel_position(0)
-    ax.plot(angles, values, linewidth=1, linestyle='solid')
-    ax.fill(angles, values, 'b', alpha=0.1)
-    fig_radar = ax
+    df7 = pd.DataFrame(dict(r=values,theta=consultas.categories))
+    fig_radar = px.line_polar(df7, r='r', theta='theta', line_close=True).update_traces(fill='toself')
     return fig_radar
-
 

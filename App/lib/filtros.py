@@ -111,7 +111,7 @@ filtro_04=html.Div (children=[
 ###########################################################################
 
 filtro_05= html.Div (children=[
-                    html.Label('ClUSTER', className='filtros-label')
+                    html.Label('CLUSTER', className='filtros-label')
                     ,dcc.Dropdown(
                         options=[
                             {'label': 'Cluster 0', 'value':0},
@@ -122,20 +122,6 @@ filtro_05= html.Div (children=[
                 ],id='filtro_05',className='filtros')
 
 
-###########################################################################
-# creamos filtro de slider para modificar por mes los markdown
-###########################################################################
 
-filtro_06 = html.Div (children=[
-                    html.Label('DURACIÓN [MESES]', className='filtros-label')
-                    ,dcc.Slider(
-                        id='my-slider',
-                        min=1,
-                        max=26,
-                        step=1,
-                        value=6,
-                        #mark={1:'1', 2:'2', 3:'3', 4:'4', 5:'5',6:'6'},
-                    ), html.Div(id='id_filtro_06')
-                ],id='filtro_06',className='filtros')
 
 

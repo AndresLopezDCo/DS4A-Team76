@@ -99,7 +99,6 @@ index_page = html.Section([
                 ,filtros.filtro_02   #efectividad - cuotas
                 ,filtros.filtro_03   #Tiempos - Marcador
                 ,filtros.filtro_04   #Filtro de año y mes
-                ,filtros.filtro_06   #Slider
             ],id='nav-accordion', className='sidebar-menu')
         ],id='sidebar', className='nav-collapse ')
     ])
@@ -113,8 +112,9 @@ index_page = html.Section([
                     # tarjeta 1
                 ###########################################################
                 html.Div ([
-                    html.Img(src='assets/logo_02.png', className='icono')
+                    html.Img(src='assets/logo_01.png', className='icono')
                     ,textos.texto_01
+                    ,html.Br()
                     ,textos.descripcion_01
                 ],className='col-md-3 tarjetas color_01')
                 ###########################################################
@@ -123,22 +123,25 @@ index_page = html.Section([
                 ,html.Div ([
                     html.Img(src='assets/logo_02.png', className='icono')
                     ,textos.texto_02
+                    ,html.Br()
                     ,textos.descripcion_02
                 ],className='col-md-3 tarjetas color_02')
                 ###########################################################
                     # tarjeta 3
                 ###########################################################
                 ,html.Div ([
-                    html.Img(src='assets/logo_02.png', className='icono')
+                    html.Img(src='assets/logo_03.png', className='icono')
                     ,textos.texto_03
+                    ,html.Br()
                     ,textos.descripcion_03
                 ],className='col-md-3 tarjetas color_03')
                 ###########################################################
                     # tarjeta 4
                 ###########################################################
                 ,html.Div ([
-                    html.Img(src='assets/logo_02.png', className='icono')
+                    html.Img(src='assets/logo_04.png', className='icono')
                     ,textos.texto_04
+                    ,html.Br()
                     ,textos.descripcion_04
                 ],className='col-md-3 tarjetas color_04')
             ],className='row')
@@ -200,32 +203,36 @@ index_page = html.Section([
                     # tarjeta 5
                 ###########################################################
                 html.Div ([
-                    html.Img(src='assets/logo_02.png', className='icono')
+                    html.Img(src='assets/logo_05.png', className='icono')
                     ,textos.texto_05
+                    ,html.Br()
                     ,textos.descripcion_05
                 ],className='col-md-3 tarjetas color_05')
                 ###########################################################
                     # tarjeta 6
                 ###########################################################
                 ,html.Div ([
-                    html.Img(src='assets/logo_02.png', className='icono')
+                    html.Img(src='assets/logo_06.png', className='icono')
                     ,textos.texto_06
+                    ,html.Br()
                     ,textos.descripcion_06
                 ],className='col-md-3 tarjetas color_06')
                 ###########################################################
                     # tarjeta 7
                 ###########################################################
                 ,html.Div ([
-                    html.Img(src='assets/logo_02.png', className='icono')
+                    html.Img(src='assets/logo_07.png', className='icono')
                     ,textos.texto_07
+                    ,html.Br()
                     ,textos.descripcion_07
                 ],className='col-md-3 tarjetas color_07')
                 ###########################################################
                     # tarjeta 8
                 ###########################################################
                 ,html.Div ([
-                    html.Img(src='assets/logo_02.png', className='icono')
+                    html.Img(src='assets/logo_07.png', className='icono')
                     ,textos.texto_08
+                    ,html.Br()
                     ,textos.descripcion_08
                 ],className='col-md-3 tarjetas color_08')
             ],className='row')

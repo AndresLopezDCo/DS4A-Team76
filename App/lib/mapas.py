@@ -68,7 +68,7 @@ trace_1 = go.Choroplethmapbox(
                         z=df_mapas['N_Efectivas'],
                         colorscale='ylgnbu',# zmin=0, zmax=12,
                         marker_opacity=0.5, marker_line_width=0)
-layout = go.Layout(mapbox_style="carto-positron",height=700,width=550,
+layout = go.Layout(mapbox_style="carto-positron",height=400,width=550,
                   mapbox_zoom=5, mapbox_center = {"lat": 4.570868, "lon": -74.2973328},
                   margin={"r":0,"t":0,"l":0,"b":0})
 fig = go.Figure(data = [trace_1], layout = layout)
@@ -78,4 +78,4 @@ fig = go.Figure(data = [trace_1], layout = layout)
 # define el mapas
 ###########################################################################
 
-mapa_01 = html.Div([dcc.Graph(figure=fig, id='id_map')], id='id_mapa_col')
+mapa_01 = html.Div([dcc.Graph(figure=fig, id='id_map')], id='id_mapa_col',className='mapa')

@@ -13,9 +13,8 @@ from dash.exceptions import PreventUpdate
 ###########################################################################
 # referenciamos py externos
 ###########################################################################
-
+from lib import filtros, textos , graficas, mapas , tablas
 from app import app
-from lib import textos
 
 ###########################################################################
 # crear contenido html
@@ -78,6 +77,8 @@ page_2_layout = html.Section([
                 ###########################################################
                 # filtros
                 ###########################################################
+                ,filtros.filtro_03
+                ,filtros.filtro_05   
             ],id='nav-accordion', className='sidebar-menu')
         ],id='sidebar', className='nav-collapse ')
     ])
@@ -87,10 +88,44 @@ page_2_layout = html.Section([
             # contenido
             ###############################################################
             html.Div ([
-                html.Br ()
+                html.Div ([
+                    html.Div ([
+                        html.H3('IMPORTANCIA DE LAS COVARIABLES')
+                    ],className='border-head')
+                    #######################################################
+                    # 'IMPORTANCIA DE LAS COVARIABLES'
+                    #######################################################
+                    ,graficas.grafica_04
+                ],className='col-md-6 main-chart')
                 ,html.Div ([
-                    'AQUI VIENE EL MODELO'
-                ],className='col-md-12 centered')
+                    html.Div ([
+                        html.H3('EFECTIVIDAD vs. TIEMPOS POR CLUSTER')
+                    ],className='border-head')
+                    #######################################################
+                    # 'EFECTIVIDAD vs. TIEMPOS POR CLUSTER'
+                    #######################################################
+                    ,graficas.grafica_05
+                ],className='col-md-6 main-chart')
+            ],className='row')
+            ,html.Div ([
+                html.Div ([
+                    html.Div ([
+                        html.H3('RADAR DE EDUCACIÓN FORMAL')
+                    ],className='border-head')
+                    #######################################################
+                    # 'RADAR DE EDUCACIÓN FORMAL'
+                    #######################################################
+                    ,graficas.grafica_06
+                ],className='col-md-6 main-chart')
+                ,html.Div ([
+                    html.Div ([
+                        html.H3('BOXPLOT DE EFECTIVIDAD POR CLUSTER')
+                    ],className='border-head')
+                    #######################################################
+                    # BOXPLOT DE EFECTIVIDAD POR CLUSTER
+                    #######################################################
+                    ,graficas.grafica_07
+                ],className='col-md-6 main-chart')
             ],className='row')
         ],className='wrapper')
         ###################################################################

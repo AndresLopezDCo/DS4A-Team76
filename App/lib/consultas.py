@@ -76,7 +76,8 @@ df_tiempos=df_modelo[cols]
 #   Consultqa - Random Forest
 ##################################################################################################
 
-objecto = pd.read_pickle('../data/Drforest.pickle')
+objecto = pd.read_pickle('/home/ec2-user/DS4A-Team76/App/data/rforest.pickle')
+# objecto = pd.read_pickle('C:\\Users\\A.Lopez\\Desktop\\DS4A-Team76\\App\data\\rforest.pickle')
 
 # query_basetest=""" select * from ecar_dwh.ecar_dwh_base_test;"""
 # X_test = conexion.runQuery(query_basetest)

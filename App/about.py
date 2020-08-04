@@ -104,7 +104,7 @@ page_1_layout = html.Section([
                     html.Img(src='assets/angelica.jpg', className='team_img grayscale')
                     ,html.H3('Angelica Castillo', className='centered')
                     ,html.P ([
-                        'Statistics'
+                        'Statistician'
                     ],className='opacity')
                     ,textos.about_02
                     ,html.Div([
@@ -121,7 +121,7 @@ page_1_layout = html.Section([
                     html.Img(src='assets/yesica.jpg', className='team_img grayscale')
                     ,html.H3('Yesica Salas', className='centered')
                     ,html.P ([
-                        'Math'
+                        'Mathematician'
                     ],className='opacity')
                     ,textos.about_03
                     ,html.Div([

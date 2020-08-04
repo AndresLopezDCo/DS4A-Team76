@@ -59,48 +59,37 @@ ejey4='covar'
 df5=consultas.df_cluster
 ejex5='calls'
 ejey5='efectividad_ajustada'
-
+df5['cluster']=df5['cluster'].astype(str)
 
 df6=consultas.df_radar
-N = len(consultas.categories)
 values=df6.loc[3].drop(['cluster']).values.flatten().tolist()
-values += values[:1]
-#values
-angles = [n / float(N) * 2 * pi for n in range(N)]
-angles += angles[:1]
 
 
-
+df7 = pd.DataFrame(dict(r=values,theta=consultas.categories))
 ejex7='cluster'
 ejey7='efectividad_ajustada'
 
 
-#Graficas por defecto 
 fig_efectivas_cuotas= px.bar(df1, x=ejex1, y=ejey1, height=400,labels={
                      'index':'Estrato',
-                     'count':'Cantidad de llamadas'})
-fig_marcador = px.scatter(df2, x=ejex2, y=ejey2, height=400)
+                     'count':'Cantidad de llamadas'},color_discrete_sequence= px.colors.sequential.Darkmint)
 
-fig_top = px.bar(df3.head(20), x=ejex3, y=ejey3, height=450,labels={
+fig_marcador = px.scatter(df2, x=ejex2, y=ejey2, height=400,color=ejex2,color_continuous_scale=px.colors.diverging.Portland)
+
+fig_top = px.bar(df3.head(20), x=ejex3, y=ejey3, height=600,labels={
                      'count':'Cantidad de llamadas efectivas',
-                     'codenc':'Encuestador'})
+                     'codenc':'Encuestador'},color_continuous_scale=px.colors.diverging.BrBG)
 
-fig_random_forest = px.bar(df4, x=ejex4, y=ejey4,height=450,labels={
+fig_random_forest = px.bar(df4.head(10), x=ejex4, y=ejey4,height=400,width=600,labels={
                      'coef':'Coeficiente de importancia',
-                     'covar':'Covariables'})
+                     'covar':'Covariables'}, color=ejex4,color_continuous_scale=px.colors.diverging.BrBG)
 
-fig_cluster = px.scatter(df5, x=ejex5, y=ejey5, color="cluster")
+fig_cluster = px.scatter(df5, x=ejex5, y=ejey5, color="cluster", category_orders={'cluster':['0','1','2','3']})
 
-
-ax = plt.subplot(111, polar=True)
-plt.xticks(angles[:-1], consultas.categories, color='grey', size=15)
-ax.set_rlabel_position(0)
-ax.plot(angles, values, linewidth=1, linestyle='solid')
-ax.fill(angles, values, 'b', alpha=0.1)
-fig_radar = ax
+fig_radar = px.line_polar(df7, r='r', theta='theta', line_close=True).update_traces(fill='toself')
 
 
-fig_boxplot = px.box(df5, x=ejex7, y=ejey7, height=400)
+fig_boxplot = px.box(df5, x=ejex7, y=ejey7, height=400,color=ejex7,category_orders={'cluster':['0','1','2','3']})
 
 ###########################################################################
 # grafica efectividad - cuotas por genero, genero, edad
@@ -151,7 +140,7 @@ grafica_05 = html.Div ([
 
 grafica_06 = html.Div ([
                     dcc.Graph(figure=fig_radar,id='id_figure_06')
-                ],id='id_grafica_06')
+                ],id='id_grafica_06',className='radar')
 
 ###########################################################################
 # grafica modelo por Cluster

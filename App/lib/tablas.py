@@ -39,7 +39,7 @@ tabla_01 = html.Div ([
                         style_cell_conditional=[{'if': {'column_id': c},'textAlign': 'left'} for c in ['codenc', 'archivo']],
 #                         fixed_row={'headers': True, 'data': 1},
                         style_table={'overflowY': 'scroll', 'overflowX': 'scroll','height': '350px'},
-                        style_header={'backgroundColor': 'rgb(24, 65, 140)',
+                        style_header={'backgroundColor': 'rgb(26, 120, 120)',
                                       'color': 'white','text-align': 'center',
                                       'font-family': 'Ruda, sans-serif','margin': '5px'},
                         style_cell={'minWidth': '60px','color': 'black','font-family': 'Ruda, sans-serif'},
